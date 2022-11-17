@@ -24,10 +24,30 @@
 				<br> <strong> Hỗ trợ (24/7) : 038 444 5041 </strong><br>
 				<br>
 			</p>
-			<span class="btn btn-mini">[ ${ totalQuantityCart } ] <span
-				class="icon-shopping-cart"></span></span> <span
-				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
-			<span class="btn btn-mini">&euro;</span>
+			<c:if test="${ not empty loginInfo }">
+						
+							<c:if test="${ not empty totalQuantityCart }">
+								<span class="btn btn-mini">[ ${ totalQuantityCart } ] <span
+								class="icon-shopping-cart"></span></span> 
+								<span class="btn btn-warning btn-mini">$</span> 
+								<span class="btn btn-mini">&pound;</span>
+								<span class="btn btn-mini">&euro;</span>
+							</c:if>
+							<c:if test="${ empty totalQuantityCart }">
+								<span class="btn btn-mini">[ 0 ] <span
+								class="icon-shopping-cart"></span></span> 
+								<span class="btn btn-warning btn-mini">$</span> 
+								<span class="btn btn-mini">&pound;</span>
+								<span class="btn btn-mini">&euro;</span>
+							</c:if>
+			</c:if> 
+			
+			<c:if test="${ empty loginInfo }">
+						<span class="btn btn-mini">[ 0 ] <span class="icon-shopping-cart"></span></span> 
+						<span class="btn btn-warning btn-mini">$</span> 
+						<span class="btn btn-mini">&pound;</span>
+						<span class="btn btn-mini">&euro;</span>
+			</c:if>
 		</div>
 	</div>
 </header>
@@ -56,7 +76,7 @@ Navigation Bar Section
 					</c:forEach>
 				</ul>
 				<form action="#" class="navbar-search pull-left">
-					<input type="text" placeholder="Search" class="search-query span2">
+					<input type="text" placeholder="Tìm kiếm" class="search-query span2">
 				</form>
 				<ul class="nav pull-right">
 				<c:if test="${ empty loginInfo }">
@@ -71,14 +91,13 @@ Navigation Bar Section
 								</div>
 								<div class="control-group">
 									<input type="password" class="span2" id="inputPassword"
-										placeholder="Password">
+										placeholder="Mật khẩu">
 								</div>
 								<div class="control-group">
 									<label class="checkbox"> <input type="checkbox">
-										Remember me
+										Nhớ mật khẩu
 									</label>
-									<button type="submit" class="shopBtn btn-block">Sign
-										in</button>
+									<button type="submit" class="shopBtn btn-block">Đăng nhập</button>
 								</div>
 							</form>
 						</div></li>
